@@ -2,18 +2,19 @@
   <section id="app" class="section">
     <section class="container grid-960">
       <menu></menu>
+      <game></game>
     </section>
   </section>
 </template>
 
 <script>
-import Hello from './components/Hello';
 import Menu from './components/Menu';
+import Game from './components/Game';
 
 export default {
   components: {
-    Hello,
     Menu,
+    Game,
   },
 };
 </script>
@@ -37,20 +38,41 @@ section {
   color: $base-c-gray;
 }
 
+.bg-gray {
+  background: $base-c-gray;
+  border-color: $base-c-gray;
+}
+
 .c-yellow {
   color: $base-c-yellow;
+}
+.bg-yellow {
+  background: $base-c-yellow;
+  border-color: $base-c-yellow;
 }
 
 .c-white {
   color: $base-c-white;
 }
+.bg-white {
+  background: $base-c-white;
+  border-color: $base-c-white;
+}
 
 .c-black {
   color: $base-c-black;
 }
+.bg-black {
+  background: $base-c-black;
+  border-color: $base-c-black;
+}
 
 .c-blue {
   color: $base-c-gray;
+}
+.bg-blue {
+  background: $base-c-blue;
+  border-color: $base-c-blue;
 }
 
 .material-icons {

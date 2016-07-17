@@ -44,6 +44,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
+                <th>順位</th>
                 <th>馬名</th>
                 <th>戦績</th>
                 <th>獲得賞金</th>
@@ -52,6 +53,7 @@
             </thead>
             <tbody>
               <tr v-for="horse in user.horses">
+                <td>{{ horse.rannking }}</td>
                 <td>{{ horse.name }}</td>
                 <td>{{ horse.record }}</td>
                 <td>{{ horse.gotPrize }}万円</td>
@@ -91,7 +93,7 @@ export default {
               dam: 'トゥザヴィクトリー',
               sex: '牡',
               record: '0-0-0-0',
-              stable: '（栗）池江',
+              stable: '池江（栗）',
               breeder: 'ノーザンファーム',
               gotPrize: 0,
             },
@@ -108,7 +110,7 @@ export default {
               dam: 'ハッピーパス',
               sex: '牡',
               record: '0-0-0-0',
-              stable: '（美）藤沢',
+              stable: '藤沢（美）',
               breeder: 'ノーザンファーム',
               gotPrize: 0,
             },

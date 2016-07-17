@@ -1,6 +1,6 @@
 <template>
   <section id="app" class="section">
-    <section class="container grid-960">
+    <section class="container grid-1260">
       <menu></menu>
       <game></game>
     </section>
@@ -22,6 +22,12 @@ export default {
 <style lang="scss">
 @import '../node_modules/spectre.css/dist/spectre.min.css';
 @import './css/common';
+
+@media screen and (min-width: 1280px) {
+  .grid-1260 {
+    width: 128rem;
+  }
+}
 
 html {
   height: 100%;

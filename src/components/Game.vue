@@ -1,37 +1,6 @@
 <template>
-  <h1 class="text-center c-white">{{ title }}</h1>
-  <div class="columns">
-    <div class="column col-4">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">報酬</h4>
-          <h6 class="card-meta">prize</h6>
-        </div>
-        <div class="divider"></div>
-        <div class="card-body">{{ prize }}</div>
-      </div>
-    </div>
-    <div class="column col-4">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">期間</h4>
-          <h6 class="card-meta">period</h6>
-        </div>
-        <div class="divider"></div>
-        <div class="card-body">{{ period }}</div>
-      </div>
-    </div>
-    <div class="column col-4">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">規定</h4>
-          <h6 class="card-meta">regulation</h6>
-        </div>
-        <div class="divider"></div>
-        <div class="card-body">{{ regulation }}</div>
-      </div>
-    </div>
-  </div>
+  <game-detail :title="title" :prize="prize" :period="period" :regulation="regulation">
+  </game-detail>
   <div class="columns">
     <div class="column col-6" v-for="user in users">
       <div class="card">
@@ -41,31 +10,7 @@
         </div>
         <div class="divider"></div>
         <div class="card-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>順位</th>
-                <th>馬名</th>
-                <th>戦績</th>
-                <th>獲得賞金</th>
-                <th>その他</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="horse in user.horses" v-bind:class="['c-white', horse.sex == '牡' ? 'bg-black' : 'bg-blue']">
-                <td>{{ horse.ranking }}</td>
-                <td>{{ horse.name }}</td>
-                <td>{{ horse.record }}</td>
-                <td>{{ horse.gotPrize }}万円</td>
-                <td>性別: {{ horse.sex }}
-                  <br />厩舎: {{ horse.stable }}
-                  <br />生産: {{ horse.breeder }}
-                  <br />父馬: {{ horse.sire }}
-                  <br />母馬: {{ horse.dam }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <draft :horses.sync="user.horses"></draft>
         </div>
       </div>
     </div>
@@ -73,7 +18,14 @@
 </template>
 
 <script>
+import Draft from './Draft';
+import GameDetail from './GameDetail';
+
 export default {
+  components: {
+    Draft,
+    GameDetail,
+  },
   data() {
     return {
       title: 'POG 2016-201７ ADC vs IGRS',

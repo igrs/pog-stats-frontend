@@ -10,7 +10,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="horse in horses" v-bind:class="['c-white', horse.sex == '牡' ? 'bg-black' : 'bg-blue']">
+      <tr v-for="horse in horses"
+          class="horse"
+          v-bind:class="['c-white', horse.sex == '牡' ? 'bg-black' : 'bg-blue']">
         <td>{{ horse.ranking }}</td>
         <td>{{ horse.name }}</td>
         <td>{{ horse.record }}</td>
@@ -32,5 +34,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.horse {
+  cursor: pointer;
+}
 </style>

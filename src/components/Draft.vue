@@ -12,7 +12,8 @@
     <tbody>
       <tr v-for="horse in horses"
           class="horse"
-          v-bind:class="['c-white', horse.sex == '牡' ? 'bg-black' : 'bg-blue']">
+          v-bind:class="['c-white', horse.sex == '牡' ? 'bg-black' : 'bg-blue']"
+          @click="showDraftModifyModal($index)">
         <td>{{ horse.ranking }}</td>
         <td>{{ horse.name }}</td>
         <td>{{ horse.record }}</td>
@@ -26,11 +27,40 @@
       </tr>
     </tbody>
   </table>
+  <draft-modify-modal :show.sync="showModal" :horse.sync="target">
+  </draft-modif-modal>
 </template>
 
 <script>
+import DraftModifyModal from './DraftModifyModal';
 export default {
+  components: {
+    DraftModifyModal,
+  },
+  data() {
+    return {
+      target: {
+        id: null,
+        ranking: null,
+        name: '',
+        record: '',
+        gotPrize: 0,
+        sex: '',
+        stable: '',
+        breeder: '',
+        sire: '',
+        dam: '',
+      },
+      showModal: false,
+    };
+  },
   props: ['horses'],
+  methods: {
+    showDraftModifyModal(index) {
+      Object.assign(this.target, this.horses[index]);
+      this.showModal = true;
+    },
+  },
 };
 </script>
 

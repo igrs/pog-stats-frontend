@@ -110,7 +110,7 @@ export default {
               breeder: 'ノースヒルズ',
             },
             {
-              ranking: 7,
+              ranking: 8,
               name: 'コロナシオン',
               sire: 'キングカメハメハ',
               dam: 'ブエナビスタ',
